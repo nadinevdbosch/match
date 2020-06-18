@@ -405,7 +405,7 @@ function update(req, res, next) {
     }
   }
 
-function deleteProfile(req, res) {
+function logOut(req, res) {
     req.session.destroy();
     res.redirect('/');
 }
