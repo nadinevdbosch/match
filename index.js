@@ -49,6 +49,7 @@ express()
     .get("/", startscreen)
     .post("/my-profile", uploadFile.single("profielfoto"), add)
     .post("/profiles", answer)
+    .post("/log-out", logOut)
     .post("/delete-profile", deleteProfile)
     .post("/update-profile", uploadFile.single("profielfoto"), update)
     .get("/my-profile/update", updateProfile)
@@ -404,7 +405,10 @@ function update(req, res, next) {
     }
   }
 
-
+function deleteProfile(req, res) {
+    req.session.destroy();
+    res.redirect('/');
+}
 
 
 
