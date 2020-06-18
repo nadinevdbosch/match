@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
 });
 
 const uploadFile = multer({ storage: storage });
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 express()
     .set("view engine", "ejs")
