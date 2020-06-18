@@ -131,8 +131,8 @@ function profiles(req, res, next) {
             dataProfiles = userData;
             for (user = 0; user < userData.length; user++) {
                 var matchPercentage = 0
-                for (i = 0; i < quizAnswers.length; i++) {
-                    if(quizAnswers[i] === userData[user].antwoorden[i]){
+                for (i = 0; i < dataMyProfile.antwoorden.length; i++) {
+                    if(dataMyProfile.antwoorden[i] === userData[user].antwoorden[i]){
                         matchPercentage += 10
                     }
                 }
