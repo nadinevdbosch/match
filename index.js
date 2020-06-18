@@ -31,7 +31,8 @@ const storage = multer.diskStorage({
     },
 });
 
-var uploadFile = multer({ storage: storage });
+const uploadFile = multer({ storage: storage });
+const port = process.env.PORT || 3000;
 
 express()
     .set("view engine", "ejs")
@@ -63,7 +64,7 @@ express()
     .get("/question8", questionEight)
     .get("/question9", questionNine)
     .get("/question10", questionTen)
-    .listen(3000, () => console.log("listening at localhost:3000"));
+    .listen(port, () => console.log("listening at " + port));
 
 
 var dataMyProfile;
