@@ -4,7 +4,8 @@
   "description": "Mijn uitwerking van de query-opdracht",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "test": "nodemon index.js",
+    "start": "node server.js"
   },
   "author": "Nadine",
   "license": "MIT",
