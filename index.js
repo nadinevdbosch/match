@@ -350,7 +350,8 @@ function answer(req, res) {
             }
 
     }
-        console.log(dataMyProfile)
+        quizAnswers = [];
+        console.log(dataMyProfile);
         res.redirect("/profiles");
 
     }else{
