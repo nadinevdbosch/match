@@ -12,3 +12,5 @@ function active() {
 
 hamburger.addEventListener('click', active);
 cross.addEventListener('click', active);
+
+console.log(typeof koe)

@@ -65,7 +65,7 @@ express()
     .get("/question8", questionEight)
     .get("/question9", questionNine)
     .get("/question10", questionTen)
-    .listen(port, () => console.log("listening at " + port));
+    .listen(port || 3000, () => console.log("listening at " + port));
 
 
 var dataMyProfile;
@@ -383,7 +383,7 @@ function deleteProfile(req, res) {
     });
 }
 
-function update(req, res, next) {
+function update(req, res) {
     db.collection('users').updateOne({
       _id: mongo.ObjectID(req.session.user._id) },
       {
@@ -394,8 +394,9 @@ function update(req, res, next) {
             leeftijd: req.body.leeftijd,
             bio: req.body.bio,
             profielfoto: req.file.filename,
-        },
-      }, done);
+            }
+
+        }, done);
 
     function done(err) {
       if (err) {
@@ -410,6 +411,9 @@ function logOut(req, res) {
     req.session.destroy();
     res.redirect('/');
 }
+
+
+
 
 
 
