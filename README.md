@@ -45,3 +45,12 @@ Installeer de npm packages: npm install
 
 - **Start the server**
 Start de server: nodemon index.js
+
+## Database 
+Ik heb 2 collections in mijn database: 
+- users
+- vragen en antwoorden van de test
+
+![users](https://github.com/nadinevdbosch/blok-tech/blob/master/images/database-users.png)
+![questions](https://github.com/nadinevdbosch/blok-tech/blob/master/images/database-question.png)
+
