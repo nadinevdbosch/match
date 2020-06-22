@@ -6,11 +6,10 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const session = require("express-session");
-
-require("dotenv").config();
 const mongo = require("mongodb");
 var db = null;
 const url = process.env.mongodbURL;
+require("dotenv").config();
 
 mongo.MongoClient.connect(url, function (err, client) {
     if (err) throw err;
@@ -21,7 +20,7 @@ mongo.MongoClient.connect(url, function (err, client) {
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "static/uploads/"); // location where the uploaded file needs to be stored
+        cb(null, "static/uploads/"); // locatie waar de files moeten worden opgeslagen
     },
     filename: function (req, file, cb) {
         cb(
@@ -90,7 +89,12 @@ function add(req, res) {
 }
 
 function startscreen(req, res) {
+    if(req.session.user){
+        console.log()
+        res.redirect("/profiles");}
+    else{
     res.render("index");
+    }
 }
 
 
