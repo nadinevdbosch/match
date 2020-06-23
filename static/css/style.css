@@ -449,6 +449,10 @@ div.container.hidden {
 
 /* opacicty regelen van de hartjes van de matches */
 
+.nul-procent {
+    opacity: 0.0;
+}
+
 .tien-procent {
     opacity: 0.1;
 }
@@ -488,6 +492,7 @@ div.container.hidden {
 .honderd-procent {
     opacity: 1;
 }
+
 
 
 

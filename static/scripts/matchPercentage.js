@@ -8,6 +8,9 @@ console.log(matches[0].innerText)
 for (i = 0; i < matches.length; i++) {
 let matchPercentage = matches[i].innerText
 console.log('is ' + matchPercentage + ' gelijk aan 10%?')
+    if( matchPercentage == '0%') {
+    heart[i].classList.add('nul-procent')
+    }
     if( matchPercentage == '10%') {
         heart[i].classList.add('tien-procent')
     }
