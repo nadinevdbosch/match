@@ -6,10 +6,11 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const session = require("express-session");
+require("dotenv").config();
 const mongo = require("mongodb");
 var db = null;
 const url = process.env.mongodbURL;
-require("dotenv").config();
+
 
 mongo.MongoClient.connect(url, function (err, client) {
     if (err) throw err;
@@ -66,37 +67,30 @@ express()
     .get("/question10", questionTen)
     .listen(port || 3000, () => console.log("listening at " + port));
 
-
-var dataMyProfile;
-
-function add(req, res) {
-    if(req.session.user){
-        console.log()
-        res.redirect("/profiles");
-    }else{
-        dataMyProfile = {
-            naam: req.body.naam,
-            geslacht: req.body.geslacht,
-            voorkeur: req.body.voorkeur,
-            leeftijd: req.body.leeftijd,
-            bio: req.body.bio,
-            profielfoto: req.file.filename
-    };
-
-    res.redirect("/quiz-intro");
-
-    }
-}
-
 function startscreen(req, res) {
     if(req.session.user){
         console.log()
         res.redirect("/profiles");}
     else{
-    res.render("index");
+        res.render("index");
     }
 }
 
+var dataMyProfile;
+
+function add(req, res) {
+    dataMyProfile = {
+        naam: req.body.naam,
+        geslacht: req.body.geslacht,
+        voorkeur: req.body.voorkeur,
+        leeftijd: req.body.leeftijd,
+        bio: req.body.bio,
+        profielfoto: req.file.filename
+    };
+
+    res.redirect("/quiz-intro");
+
+}
 
 function myProfile(req, res) {
     db.collection("users").findOne(
@@ -142,6 +136,7 @@ function profiles(req, res, next) {
                 }
                 console.log('het matchpercentage met ' + userData[user].naam + ' = ' + matchPercentage)
                 dataProfiles[user].matchpercentage= matchPercentage
+                //Sorteren zodat de hoogste match bovenaan komt te staan
                 dataProfiles.sort(function(a,b) {
                     return b.matchpercentage - a.matchpercentage;
                 });
@@ -359,7 +354,7 @@ function answer(req, res) {
         res.redirect("/profiles");
 
     }else{
-        res.redirect("/question" + questionID);
+        res.redirect("/question" + questionID + "?question=" + questionID);
     }
     console.log(questionID);
     console.log(quizAnswers);
@@ -416,7 +411,7 @@ function logOut(req, res) {
     res.redirect('/');
 }
 
-
+console.log(db);
 
 
 

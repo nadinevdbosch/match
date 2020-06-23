@@ -139,7 +139,8 @@ header {
     height: 60px;
     width: 100%;
     position: fixed;
-    background-color: #E41E26;
+    background-color: rgba(228,30,38,1);
+    z-index: 100;
 }
 
 main {
@@ -209,6 +210,7 @@ footer {
     display: flex;
     position: fixed;
     bottom: 0px;
+    z-index: 100;
 }
 
 footer .taakbalk-optie img {
@@ -265,7 +267,7 @@ footer .taakbalk-optie-actief {
 .match-berekening {
     width: 60%;
     height: 60%;
-    background-image: url(../images/hart.png);
+    /* background-image: url(../images/hart.png); */
     background-size: contain;
     background-repeat: no-repeat;
     display: flex;
@@ -273,11 +275,20 @@ footer .taakbalk-optie-actief {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+}
+
+.match-berekening img {
+    padding-top: 20px;
+    width: 100%;
+    z-index: 1;
 }
 
 .match-berekening p {
     font-size: 24px;
     margin-bottom: 10px;
+    position: absolute;
+    z-index: 2;
 }
 
 /* STYLING VAN DE DETAIL-PAGINA */
@@ -389,3 +400,95 @@ footer .taakbalk-optie-actief {
     margin-bottom: 20px;
     color: white;
 }
+
+
+/* styling van mijn step-pogress-bar */
+
+
+.quiz-questions .container{
+    display: flex;
+    justify-content: center;
+}
+
+.step_progress_bar {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.step_progress_bar .step .bullet {
+    vertical-align: center;
+    color: white;
+    border: 1px solid white;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 100%;
+    position: relative;
+}
+
+.step_progress_bar .step .bullet.completed {
+    background-color: #1E1E1E;
+    color: greenyellow;
+    border-color: #1E1E1E;
+}
+
+.step_progress_bar .step .bullet.current_step {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    margin-top: -10px;
+    font-size: 24px;
+}
+
+div.container.hidden {
+    display: none ;
+}
+
+/* opacicty regelen van de hartjes van de matches */
+
+.tien-procent {
+    opacity: 0.1;
+}
+
+.twintig-procent {
+    opacity: 0.2;
+}
+
+.dertig-procent {
+    opacity: 0.3;
+}
+
+.veertig-procent {
+    opacity: 0.4;
+}
+
+.vijftig-procent {
+    opacity: 0.5;
+}
+
+.zestig-procent {
+    opacity: 0.6;
+}
+
+.zeventig-procent {
+    opacity: 0.7;
+}
+
+.tachtig-procent {
+    opacity: 0.8;
+}
+
+.negentig-procent {
+    opacity: 0.9;
+}
+
+.honderd-procent {
+    opacity: 1;
+}
+
+
+
+

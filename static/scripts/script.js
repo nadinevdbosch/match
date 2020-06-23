@@ -1,8 +1,7 @@
 //script voor hamburgermenu
-var hamburger = document.querySelector('.hamburger');
-var cross = document.querySelector('.cross');
-var navigatie = document.querySelector('nav');
-console.log(navigatie);
+const hamburger = document.querySelector('.hamburger');
+const cross = document.querySelector('.cross');
+const navigatie = document.querySelector('nav');
 
 function active() {
     navigatie.classList.toggle('menu-items-active');
@@ -12,5 +11,3 @@ function active() {
 
 hamburger.addEventListener('click', active);
 cross.addEventListener('click', active);
-
-console.log(typeof koe)
